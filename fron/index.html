@@ -1,30 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Chat PDF</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login y Registro</title>
+    <link rel="stylesheet" href="login_registro.css" />
 </head>
+
 <body>
-    <h1>chat PDF</h1>
-    
-    <div class="container_pdf">
-        <input type="file" name="" id="fileInput" accept=".pdf">
-        <button id="uploadButton" onclick=cargar">cargar PDF</button>
+
+    <h1>Bienvenido</h1>
+
+    <div class="form-container">
+
+        <!-- LOGIN -->
+        <section class="form-box" id="loginSection">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Correo electrónico" required class="form-field" />
+                <input type="password" placeholder="Contraseña" required class="form-field" />
+                <button type="submit" class="form-button">Ingresar</button>
+            </form>
+            <p class="toggle-link">¿No tienes cuenta?
+                <a href="#" onclick="mostrarRegistro()">Regístrate</a>
+            </p>
+        </section>
+
+        <!-- REGISTRO -->
+        <section class="form-box oculto" id="registroSection">
+            <h2>Registrarse</h2>
+            <form id="registerForm">
+                <input type="text" placeholder="Nombre completo" required class="form-field" />
+                <input type="email" placeholder="Correo electrónico" required class="form-field" />
+                <input type="password" placeholder="Contraseña" required class="form-field" />
+                <button type="submit" class="form-button">Crear cuenta</button>
+            </form>
+            <p class="toggle-link">¿Ya tienes cuenta?
+                <a href="#" onclick="mostrarLogin()">Inicia sesión</a>
+            </p>
+        </section>
+
     </div>
 
-    <div class="container_chat">
-        <div class="chat-box" id="chatBox">
-            <div class="message" id="messageContainer"></div>
-        </div>
-        <div class="send-bar">
-            <input type="text" id="userInput" placeholder="Escribe tu mensaje aquí...">
-            <button id="sendButton" onclick=cargarMensaje()>Enviar</button>
-        </div>
-        
-    </div>
-    
+    <script src="login_registro.js"></script>
+
 </body>
-<script src="script.js"></script>
+
 </html>

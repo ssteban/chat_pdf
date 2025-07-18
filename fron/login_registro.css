@@ -1,0 +1,96 @@
+/* login.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f2f2f2, #e0f7fa);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 30px 10px 10px;
+    color: #00796b;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.form-box {
+    background-color: #ffffff;
+    padding: 30px 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+}
+
+.form-box h2 {
+    color: #004d40;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-field {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.form-button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.form-button:hover {
+    background-color: #004d40;
+}
+
+
+/* Ocultar y mostrar secciones */
+.oculto {
+    display: none;
+}
+
+.toggle-link {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.toggle-link a {
+    color: #00796b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.toggle-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

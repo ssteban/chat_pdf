@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Chat PDF</title>
+</head>
+
+<body>
+    <h1>chat PDF</h1>
+
+    <div class="container_pdf">
+        <input type="file" name="" id="fileInput" accept=".pdf">
+        <button id="uploadButton" onclick=cargarPdf()>cargar PDF</button>
+    </div>
+
+    <div class="container_chat">
+        <div class="chat-box" id="chatBox">
+            <div class="message" id="messageContainer"></div>
+        </div>
+        <div class="send-bar">
+            <input type="text" id="userInput" placeholder="Escribe tu mensaje aquí...">
+            <button id="sendButton" onclick=cargarMensaje()>Enviar</button>
+        </div>
+
+    </div>
+
+
+    <div class="modalCarga">
+        <div class="modal-content">
+            <span class="spinner"></span>
+            <p>cargando PDF...</p>
+        </div>
+    </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
