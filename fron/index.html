@@ -18,9 +18,9 @@
         <section class="form-box" id="loginSection">
             <h2>Iniciar Sesión</h2>
             <form id="loginForm">
-                <input type="email" placeholder="Correo electrónico" required class="form-field" />
-                <input type="password" placeholder="Contraseña" required class="form-field" />
-                <button type="submit" class="form-button">Ingresar</button>
+                <input type="email" id="correoInicio" placeholder="Correo electrónico" required class="form-field" />
+                <input type="password" id="contraseñaInicio" placeholder="Contraseña" required class="form-field" />
+                <button type="button" class="form-button" onclick=procesarUsuarioIniciar()>Ingresar</button>
             </form>
             <p class="toggle-link">¿No tienes cuenta?
                 <a href="#" onclick="mostrarRegistro()">Regístrate</a>
@@ -34,7 +34,7 @@
                 <input type="text" id="nombre" placeholder="Nombre completo" required class="form-field" />
                 <input type="email" id="correo" placeholder="Correo electrónico" required class="form-field" />
                 <input type="password" id="contraseña" placeholder="Contraseña" required class="form-field" />
-                <button type="button" class="form-button" onclick=procesarUsuario()>Crear cuenta</button>
+                <button type="button" class="form-button" onclick=procesarUsuarioRegistro()>Crear cuenta</button>
             </form>
             <p class="toggle-link">¿Ya tienes cuenta?
                 <a href="#" onclick="mostrarLogin()">Inicia sesión</a>

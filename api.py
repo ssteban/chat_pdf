@@ -53,6 +53,20 @@ async def registro(request: Request):
         print(f"Error al procesar el registro: {e}")
         return JSONResponse(content={"error": "Error al procesar el registro"}, status_code=400)
 
+@app.post("/iniciar")
+async def iniciar(request: Request):
+    try:
+        data = await request.json()
+        correo = data.get("correo")
+        contraseña = data.get("contraseña")
+
+        print(correo, contraseña)
+        return JSONResponse(content={"datos": "true"}, status_code=200)
+
+    except Exception as e:
+        print(f"Error al iniciar secion {e}")
+        return JSONResponse(content={"error": "Error al iniciar sesion"},status_code=400)
+    
 
 @app.post("/montar_pdf")
 async def montar_pdf(pdf: UploadFile = File(...)):
