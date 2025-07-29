@@ -1,3 +1,27 @@
+if (localStorage.getItem("usuarioLogueado") !== "true") {
+    window.location.href = "../index.html";
+}
+
+function toggleDropdown() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+function cerrarSesion() {
+    localStorage.clear();
+    alert("Sesión cerrada");
+    window.location.href = "../index.html";
+}
+
+// Ocultar el menú si se hace clic fuera
+window.addEventListener('click', function (e) {
+    const menu = document.getElementById("dropdownMenu");
+    const icon = document.querySelector('.user-icon');
+    if (!icon.contains(e.target) && !menu.contains(e.target)) {
+        menu.style.display = "none";
+    }
+});
+
 function cargarPdf() {
 
     const fileInput = document.getElementById('fileInput');

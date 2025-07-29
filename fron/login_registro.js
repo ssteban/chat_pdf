@@ -63,8 +63,11 @@ function iniciarSesion(correo, contraseña){
         }
     })
     .then(data => {
-        if(datos==="true"){
-            alert("Bienvenido: "+nombre);
+        if(data.datos==="true"){
+            alert("Bienvenido: "+data.nombre);
+            localStorage.setItem("usuarioLogueado", "true");
+            localStorage.setItem("correo", correo);
+            window.location.href = "chat/chat.html";
         }else{
             alert("Usuario o contraseña Incorrecto, Intente de nuevo.")
         }

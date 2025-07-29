@@ -61,7 +61,7 @@ async def iniciar(request: Request):
         contraseña = data.get("contraseña")
 
         print(correo, contraseña)
-        return JSONResponse(content={"datos": "true"}, status_code=200)
+        return JSONResponse(content={"datos": "true", "nombre":"Fidel Sanchez"}, status_code=200)
 
     except Exception as e:
         print(f"Error al iniciar secion {e}")
@@ -90,6 +90,7 @@ async def montar_pdf(pdf: UploadFile = File(...)):
     except Exception as e:
         print(f"Error al montar el PDF: {e}")
         return JSONResponse(content={"error": "Error al montar el PDF"}, status_code=400)
+
 
 
 if __name__ == "__main__":

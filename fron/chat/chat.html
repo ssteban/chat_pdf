@@ -4,11 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chat.css">
     <title>Chat PDF</title>
 </head>
 
 <body>
+    
+    <div class="user-menu-container">
+        <div class="user-icon" onclick="toggleDropdown()">U</div>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="#">Cuenta</a>
+            <a href="#">Ajustes</a>
+            <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+        </div>
+    </div>
+
     <h1>chat PDF</h1>
 
     <div class="container_pdf">
@@ -36,6 +46,6 @@
     </div>
 
 </body>
-<script src="script.js"></script>
+<script src="chat.js"></script>
 
 </html>
