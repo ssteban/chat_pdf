@@ -8,7 +8,7 @@ function mostrarLogin() {
     document.getElementById('loginSection').classList.remove('oculto');
 }
 function registrarUsuario(nombre, correo, contraseña) {
-    fetch('http://127.0.0.1:8000/registro', {
+    fetch('http://127.0.0.1:8000/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ function registrarUsuario(nombre, correo, contraseña) {
         }
     })
     .then(data => {
-        alert('Usuario registrado correctamente');
+        alert(`${data.mensaje}\nBienvenido: ${data.nombre}`);
         mostrarLogin()
         
     })
@@ -48,7 +48,7 @@ function procesarUsuarioRegistrar() {
 }
 
 function iniciarSesion(correo, contraseña){
-    fetch('http://127.0.0.1:8000/iniciar', {
+    fetch('http://127.0.0.1:8000/auth/iniciar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
