@@ -1,11 +1,16 @@
 function mostrarRegistro() {
     document.getElementById('loginSection').classList.add('oculto');
     document.getElementById('registroSection').classList.remove('oculto');
+    document.getElementById('nombre').value = "";
+    document.getElementById('correo').value = "";
+    document.getElementById('contraseña').value = "";
 }
 
 function mostrarLogin() {
     document.getElementById('registroSection').classList.add('oculto');
     document.getElementById('loginSection').classList.remove('oculto');
+    document.getElementById("correoInicio").value = "";
+    document.getElementById("contraseñaInicio").value = "";
 }
 function registrarUsuario(nombre, correo, contraseña) {
     fetch('http://127.0.0.1:8000/auth/register', {
@@ -48,7 +53,7 @@ function procesarUsuarioRegistrar() {
 }
 
 function iniciarSesion(correo, contraseña){
-    fetch('http://127.0.0.1:8000/auth/iniciar', {
+    fetch('http://127.0.0.1:8000/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -63,13 +68,14 @@ function iniciarSesion(correo, contraseña){
         }
     })
     .then(data => {
-        if(data.datos==="true"){
+        if(data.datos){
             alert("Bienvenido: "+data.nombre);
             localStorage.setItem("usuarioLogueado", "true");
             localStorage.setItem("correo", correo);
+            localStorage.setItem("token", data.token);
             window.location.href = "chat/chat.html";
         }else{
-            alert("Usuario o contraseña Incorrecto, Intente de nuevo.")
+            alert(data.mensaje);
         }
     })
     .catch(error => {
