@@ -1,6 +1,7 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Response
 from ..utils.utils_time import obtenerfecha
 from ..utils.auth import create_token
+from ..utils.cookies import set_cookie, delete_cookie
 from pydantic import BaseModel
 from ..db.queries import register_user, login_user
 
@@ -36,7 +37,7 @@ async def register(user: RegisterUser):
 
 
 @router.post("/login")
-async def login(user: LoginUser):
+async def login(user: LoginUser, response: Response):
     try:
         verify = login_user(user.correo, user.contraseña)
 
@@ -44,7 +45,8 @@ async def login(user: LoginUser):
             return {"datos": False, "mensaje": "Credenciales inválidas, Intente de nuevo"}
 
         token = create_token(verify['username'], verify['rol_usuario'])
-        
+        set_cookie(response, token)
+
         return {
             "datos": True,
             "token": token,
@@ -52,3 +54,13 @@ async def login(user: LoginUser):
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Error al iniciar sesión: {e}")
+    
+
+@router.post("/logout")
+async def logout():
+    try:
+        response = Response()
+        delete_cookie(response)
+        return {"success": True, "mensaje": "Cierre de sesión exitoso"}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Error al cerrar sesion: {e}")

@@ -9,8 +9,24 @@ function toggleDropdown() {
 
 function cerrarSesion() {
     localStorage.clear();
-    alert("Sesión cerrada");
-    window.location.href = "../index.html";
+    fetch('http://127.0.0.1:8000/auth/logout', {
+        method: 'POST',
+        credentials: 'include'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al cerrar la sesión');
+        }
+        return response.json();
+    })
+    .then(data => {
+        alert(data.mensaje);
+        window.location.href = "../index.html";
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    
 }
 
 // Ocultar el menú si se hace clic fuera

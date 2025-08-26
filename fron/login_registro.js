@@ -58,7 +58,8 @@ function iniciarSesion(correo, contraseña){
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({correo, contraseña })
+        body: JSON.stringify({correo, contraseña }),
+        credentials: 'include'
     })
     .then(response => {
         if (response.ok) {
@@ -71,8 +72,6 @@ function iniciarSesion(correo, contraseña){
         if(data.datos){
             alert("Bienvenido: "+data.nombre);
             localStorage.setItem("usuarioLogueado", "true");
-            localStorage.setItem("correo", correo);
-            localStorage.setItem("token", data.token);
             window.location.href = "chat/chat.html";
         }else{
             alert(data.mensaje);
