@@ -65,5 +65,6 @@ def login_user(username, password):
         except Exception as e:
             print(f"Error al iniciar sesión: {e}")
             return {"error": f"Error interno: {e}"}
+        
         finally:
             cursor.close()
